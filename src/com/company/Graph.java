@@ -26,25 +26,22 @@ public class Graph {
     }
 
     public void printArr(){
-
         int count = 0;
         String out = "";
         for (int[] x : arr){
             out += "|"+count+"\t";
             count++;
         }
-        System.out.println("|\t\t"+out+"\n");
-        out = "";
+        out = "|\t\t"+out+"\n\n";
         count = 0;
         for (int[] x : arr) {
-            System.out.print("|"+count+"\t\t");
+            out += "|"+count+"\t\t";
             count++;
             for (int y : x){
                 out += "|"+y+"\t";
             }
-            System.out.println(out);
-            out = "";
+            out += "\n";
         }
-        System.out.println("\n\n");
+        System.out.println(out+"\n\n");
     }
 }
