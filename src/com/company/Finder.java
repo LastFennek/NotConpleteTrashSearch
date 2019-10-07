@@ -23,7 +23,11 @@ public class Finder {
              return new Object[]{Integer.MAX_VALUE};
          }
         }
+        if(way > shame){
+            return new Object[]{Integer.MAX_VALUE};
+        }
         if(self == dest){
+            this.shame = way;
             path = new ArrayList<>();
             path.add(self);
             return new Object[]{way,path};
