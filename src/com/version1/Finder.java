@@ -1,4 +1,4 @@
-package com.company;
+package com.version1;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,7 +19,7 @@ public class Finder {
         int thisWay = Integer.MAX_VALUE;
 
 
-        if(bestSoFar.containsKey(self)&& bestSoFar.get(self) < way){
+        if(bestSoFar.containsKey(self) && bestSoFar.get(self) < way){
                 return new Object[]{Integer.MAX_VALUE};
         }
 
@@ -36,15 +36,12 @@ public class Finder {
                 for(int col = 0; col < arr[self].length; col++){
                     if(col != self) {
                         if(arr[self][col] > 0){
-
                                 Object[] ret = findWay(col, dest, way + arr[self][col], arr, soFar, path);
                                 if (thisWay > (int) ret[0] && (int) ret[0] > 0) {
                                     thisWay = (int) ret[0];
                                     path = (ArrayList<Integer>) ret[1];
                                     path.add(self);
                                 }
-
-
                             }
                         }
                     }
