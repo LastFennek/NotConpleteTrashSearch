@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         long start = System.nanoTime();
-	    Graph graph = new Graph(20,100,50);
+	    Graph graph = new Graph(2000,10,500);
 	    //graph.printArr();
         System.out.println("Create Graph Time: "+ (System.nanoTime()-start)/1000000+"\n\n");
 
@@ -18,21 +18,33 @@ public class Main {
         System.out.println("\n");
 
 
-        Finder finder = new Finder();
+        //Finder finder = new Finder();
+        //start = System.nanoTime();
+        //Object[] test = finder.findWay(graph.getArr(),0,1);
+        //System.out.println("Weg: "+test[0]);
+        //System.out.println("Path: "+test[1]);
+        //System.out.println("Find way Time: "+ (System.nanoTime()-start)/1000000);
+        //System.out.println("\n");
+
+
         start = System.nanoTime();
-        Object[] test = finder.findWay(graph.getArr(),0,1);
-        System.out.println("Weg: "+test[0]);
-        System.out.println("Path: "+test[1]);
-        System.out.println("Find way Time: "+ (System.nanoTime()-start)/1000000);
-        System.out.println("\n");
-
-
-
         FinderV2 FinderV2 = new FinderV2();
-        graph.printArr();
+        //graph.printArr();
         System.out.println("FinderV2: "+FinderV2.findWay(graph.getArr(),0,1)[0]);
         System.out.println("FinderV2: "+FinderV2.findWay(graph.getArr(),0,1)[1]);
+        System.out.println("Find way V2 Time: "+ (System.nanoTime()-start)/1000000);
 
+        //int i = 0;
+        //int j = 0;
 
+        //int counter = 5;
+        //while (i == j){
+            //Graph graph1 = new Graph(counter,100,5);
+            //Object[] test1 = finder.findWay(graph1.getArr(),0,1);
+            //i = (int)test1[0];
+            //j = (int)FinderV2.findWay(graph.getArr(),0,1)[0];
+            //counter++;
+        //}
+        //System.out.println(counter);
     }
 }

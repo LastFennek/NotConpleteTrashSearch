@@ -37,8 +37,11 @@ public class FinderV2 {
                         if(arr[col][i] > 0){
 
                             if(elem.containsKey(arr[col][i]+elem.firstKey())){
-                                elem.get(elem.firstKey()).get(0).add(i);
-                                elem.get(arr[col][i]+elem.firstKey()).add(elem.get(elem.firstKey()).get(0));
+                                ArrayList<Integer> temp = new ArrayList<>();
+                                temp.addAll(elem.get(elem.firstKey()).get(0));
+                                temp.add(i);
+                                elem.get(arr[col][i]+elem.firstKey()).add(temp);
+                                temp = null;
                             }else{
                                 ArrayList<ArrayList<Integer>> start = new ArrayList<>();
                                 ArrayList<Integer> toAdd = new ArrayList<>();
