@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Graph {
     int[][] arr;
-    Random rand = new Random();
+    Random rand = new Random(1);
 
     Graph(int size, int density, int upTo){
         this.arr = new int[size][size];
