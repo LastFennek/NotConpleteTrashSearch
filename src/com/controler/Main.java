@@ -2,12 +2,13 @@ package com.controler;
 
 import com.version1.Finder;
 import com.version2.FinderV2;
+import com.version2.FinderV2WithoutPath;
 
 public class Main {
 
     public static void main(String[] args) {
         long start = System.nanoTime();
-	    Graph graph = new Graph(2000,10,500);
+	    Graph graph = new Graph(15,100,10);
 	    //graph.printArr();
         System.out.println("Create Graph Time: "+ (System.nanoTime()-start)/1000000+"\n\n");
 
@@ -27,12 +28,22 @@ public class Main {
         //System.out.println("\n");
 
 
-        start = System.nanoTime();
-        FinderV2 FinderV2 = new FinderV2();
+        //start = System.nanoTime();
+        //FinderV2 FinderV2 = new FinderV2();
         //graph.printArr();
-        System.out.println("FinderV2: "+FinderV2.findWay(graph.getArr(),0,1)[0]);
-        System.out.println("FinderV2: "+FinderV2.findWay(graph.getArr(),0,1)[1]);
-        System.out.println("Find way V2 Time: "+ (System.nanoTime()-start)/1000000);
+        //Object[] ret = FinderV2.findWay(graph.getArr(),0,1);
+        //System.out.println("FinderV2: "+ret[0]);
+        //System.out.println("FinderV2: "+ret[1]);
+        //System.out.println("Find way V2 Time: "+ (System.nanoTime()-start)/1000000);
+
+        //System.out.println("\n");
+
+        start = System.nanoTime();
+        FinderV2WithoutPath FinderV2W = new FinderV2WithoutPath();
+        //graph.printArr();
+        int ret1 = FinderV2W.findWay(graph.getArr(),0,1);
+        System.out.println("FinderV2W: "+ret1);
+        System.out.println("Find way V2W Time: "+ (System.nanoTime()-start)/1000000);
 
         //int i = 0;
         //int j = 0;

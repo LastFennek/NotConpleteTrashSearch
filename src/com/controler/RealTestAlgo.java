@@ -51,7 +51,7 @@ public class RealTestAlgo {
 
                 for (int vertex_V = 0; vertex_V <vertices ; vertex_V++) {
                     if(matrix[vertex_U][vertex_V]>0){
-                        if(spt[vertex_V]==false && matrix[vertex_U][vertex_V]!=INFINITY){
+                        if(!spt[vertex_V] && matrix[vertex_U][vertex_V]!=INFINITY){
 
                             int newKey =  matrix[vertex_U][vertex_V] + distance[vertex_U];
                             if(newKey<distance[vertex_V])

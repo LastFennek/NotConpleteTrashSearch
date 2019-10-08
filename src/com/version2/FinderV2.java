@@ -16,16 +16,14 @@ public class FinderV2 {
             already[i] = false;
         }
         TreeMap<Integer, ArrayList<ArrayList<Integer>>> elem = new TreeMap<>();
-        ArrayList<ArrayList<Integer>> start1 = new ArrayList<>();
-        ArrayList<Integer> toAdd1 = new ArrayList<>();
-        toAdd1.add(origin);
-        start1.add(toAdd1);
-        elem.put(0,start1);
+        elem.put(0,new ArrayList<ArrayList<Integer>>(){{add(new ArrayList<Integer>(){{add(origin);}});}});
 
         int col;
         while(true){
+            ArrayList<Integer> x = elem.get(elem.firstKey()).get(0);
+            col = x.get(x.size()-1);
 
-            col = elem.get(elem.firstKey()).get(0).get(elem.get(elem.firstKey()).get(0).size()-1);
+
             already[col] = true;
 
             if(col == destination){
@@ -38,17 +36,12 @@ public class FinderV2 {
 
                             if(elem.containsKey(arr[col][i]+elem.firstKey())){
                                 ArrayList<Integer> temp = new ArrayList<>();
-                                temp.addAll(elem.get(elem.firstKey()).get(0));
+                                temp.addAll(x);
                                 temp.add(i);
                                 elem.get(arr[col][i]+elem.firstKey()).add(temp);
-                                temp = null;
                             }else{
-                                ArrayList<ArrayList<Integer>> start = new ArrayList<>();
-                                ArrayList<Integer> toAdd = new ArrayList<>();
-                                toAdd.addAll(elem.get(elem.firstKey()).get(0));
-                                toAdd.add(i);
-                                start.add(toAdd);
-                                elem.put(arr[col][i]+elem.firstKey(),start);
+                                int finalI = i;
+                                elem.put(arr[col][i]+elem.firstKey(),new ArrayList<ArrayList<Integer>>(){{add(new ArrayList<Integer>(){{addAll(x); add(finalI);}});}});
                             }
                         }
                     }
@@ -60,6 +53,7 @@ public class FinderV2 {
                     elem.remove(elem.firstKey());
                 }
         }
+
 
         return new Object[]{elem.firstKey(),elem.get(elem.firstKey()).get(0)};
     }
