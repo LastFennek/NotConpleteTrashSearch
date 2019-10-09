@@ -1,45 +1,42 @@
 package com.version2;
 
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.TreeMap;
 
 public class FinderV2WithoutPath {
 
     public int findWay(int[][] arr, int origin, int destination){
 
-        Boolean[] already = new Boolean[arr.length];
-        for(int i = 0; i < already.length;i++){
-            already[i] = false;
-        }
-        TreeMap<Integer, ArrayList<Integer>> elem = new TreeMap<>();
-        elem.put(0,new ArrayList<Integer>(){{add(origin);}});
+        TreeMap<Integer, BitSet> elem = new TreeMap<>();
+        elem.put(0,new BitSet(){{set(origin);}});
 
         int col;
         while(true){
-            ArrayList<Integer> x = elem.get(elem.firstKey());
-            col = x.get(0);
+            col = elem.get(elem.firstKey()).nextSetBit(0);
 
-            already[col] = true;
+            for(int i = 0; i < arr.length; i++){
+                arr[i][col] = 0;
+            }
 
             if(col == destination){
                 break;
             }
 
             for(int i = 0; i < arr.length; i++){
-                if(!already[i]){
-                    if(arr[col][i] > 0){
-                        if(elem.containsKey(arr[col][i]+elem.firstKey())){
-                            elem.get(arr[col][i]+elem.firstKey()).add(i);
-                        }else{
-                            int finalI = i;
-                            elem.put(arr[col][i]+elem.firstKey(),new ArrayList<Integer>(){{add(finalI);}});
-                        }
+                if(arr[col][i] > 0){
+                    if(elem.containsKey(arr[col][i]+elem.firstKey())){
+                        elem.get(arr[col][i]+elem.firstKey()).set(i);
+                    }else{
+                        int finalI = i;
+                        elem.put(arr[col][i]+elem.firstKey(),new BitSet(){{set(finalI);}});
                     }
                 }
+
             }
 
-            if( elem.get(elem.firstKey()).size() > 1){
-                elem.get(elem.firstKey()).remove(0);
+            if( elem.get(elem.firstKey()).cardinality() > 1){
+                elem.get(elem.firstKey()).clear(elem.get(elem.firstKey()).nextSetBit(0));
             }else{
                 elem.remove(elem.firstKey());
             }
