@@ -4,12 +4,14 @@ import java.util.Random;
 
 public class Graph {
     int[][] arr;
-    Random rand = new Random(5);
+    Random rand = new Random(1);
 
     public Graph(int size, int density, int upTo){
         this.arr = new int[size][size];
         this.createEdges(density, upTo);
     }
+
+    public Graph(){}
 
     public void createEdges(int density,int upTp){
         for (int x = 0; x < arr.length; x++) {
@@ -27,20 +29,40 @@ public class Graph {
 
     public void printArr(){
         int count = 0;
-        String out = "";
+        StringBuilder out = new StringBuilder();
         for (int[] x : arr){
-            out += "|"+count+"\t";
+            out.append("|").append(count).append("\t");
             count++;
         }
-        out = "|\t\t"+out+"\n\n";
+        out = new StringBuilder("|\t\t" + out + "\n\n");
         count = 0;
         for (int[] x : arr) {
-            out += "|"+count+"\t\t";
+            out.append("|").append(count).append("\t\t");
             count++;
             for (int y : x){
-                out += "|"+y+"\t";
+                out.append("|").append(y).append("\t");
             }
-            out += "\n";
+            out.append("\n");
+        }
+        System.out.println(out+"\n\n");
+    }
+
+    public void printArr(int[][] arr1){
+        int count = 0;
+        StringBuilder out = new StringBuilder();
+        for (int[] x : arr1){
+            out.append("|").append(count).append("\t");
+            count++;
+        }
+        out = new StringBuilder("|\t\t" + out + "\n\n");
+        count = 0;
+        for (int[] x : arr1) {
+            out.append("|").append(count).append("\t\t");
+            count++;
+            for (int y : x){
+                out.append("|").append(y).append("\t");
+            }
+            out.append("\n");
         }
         System.out.println(out+"\n\n");
     }

@@ -1,6 +1,5 @@
 package com.version2;
 
-import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.TreeMap;
 
