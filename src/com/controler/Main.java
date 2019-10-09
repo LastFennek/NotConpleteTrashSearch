@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         long start = System.nanoTime();
-	    Graph graph = new Graph(15,100,10);
+	    Graph graph = new Graph(10000,50,20000);
 	    //graph.printArr();
         System.out.println("Create Graph Time: "+ (System.nanoTime()-start)/1000000+"\n\n");
 
