@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         long start = System.nanoTime();
         int max = 5000;
-	    Graph graph = new Graph(15000,80,max);
+	    Graph graph = new Graph(25000,80,max);
 	    //graph.printArr();
         System.out.println("Create Graph Time: "+ (System.nanoTime()-start)/1000000+"\n\n");
 
