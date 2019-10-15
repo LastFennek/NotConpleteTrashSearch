@@ -1,10 +1,11 @@
 package com.controler;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Graph {
     int[][] arr;
-    Random rand = new Random(1);
+    private ThreadLocalRandom rand = ThreadLocalRandom.current();
 
     public Graph(int size, int density, int upTo){
         this.arr = new int[size][size];

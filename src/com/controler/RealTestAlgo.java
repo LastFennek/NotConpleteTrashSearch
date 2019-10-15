@@ -54,8 +54,12 @@ public class RealTestAlgo {
                         if(!spt[vertex_V] && matrix[vertex_U][vertex_V]!=INFINITY){
 
                             int newKey =  matrix[vertex_U][vertex_V] + distance[vertex_U];
-                            if(newKey<distance[vertex_V])
+                            if(newKey<distance[vertex_V]){
+                                if(vertex_V == endVertex){
+                                    System.out.println(newKey);
+                                }
                                 distance[vertex_V] = newKey;
+                            }
                         }
                     }
                 }

@@ -15,8 +15,8 @@ public class FinderV2 {
         for(int i = 0; i < already.length;i++){
             already[i] = false;
         }
-        TreeMap<Integer, ArrayList<ArrayList<Integer>>> elem = new TreeMap<>();
-        elem.put(0,new ArrayList<ArrayList<Integer>>(){{add(new ArrayList<Integer>(){{add(origin);}});}});
+        TreeMap<Integer, ArrayList<ArrayList<Integer>>> elem = new TreeMap<>(){{put(0,new ArrayList<ArrayList<Integer>>(){{add(new ArrayList<Integer>(){{add(origin);}});}});}};
+        //elem.
 
         int col;
         while(true){
